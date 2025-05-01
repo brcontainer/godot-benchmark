@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://bamewew7430oi"]
+
+[ext_resource type="PackedScene" uid="uid://blcq31elikvjq" path="res://src/background.tscn" id="1_wdpu2"]
+[ext_resource type="Texture2D" uid="uid://dyw5av03h037m" path="res://src/assets/logo.png" id="2_oupes"]
+
+[sub_resource type="GDScript" id="GDScript_q5c84"]
+script/source = "extends CanvasLayer
+## This file is part of the program
+##
+## Copyright (c) 2025 Guilherme Nascimento (brcontainer@yahoo.com.br)
+##
+## Released under the MIT license
+
+
+func _on_change_2d_scene_button_down() -> void:
+	get_tree().change_scene_to_file(\"res://src/2D/main.tscn\")
+
+
+func _on_change_3d_scene_button_down() -> void:
+	get_tree().change_scene_to_file(\"res://src/3D/main.tscn\")
+"
+
+[node name="Intro" type="CanvasLayer"]
+layer = 5
+script = SubResource("GDScript_q5c84")
+
+[node name="Background" parent="." instance=ExtResource("1_wdpu2")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_oupes")
+stretch_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer1" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Change2DScene" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer1"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "2D Benchmark"
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Change3DScene" type="Button" parent="VBoxContainer/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "3D Benchmark"
+
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer1/Change2DScene" to="." method="_on_change_2d_scene_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/MarginContainer2/Change3DScene" to="." method="_on_change_3d_scene_button_down"]

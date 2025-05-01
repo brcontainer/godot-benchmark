@@ -1,0 +1,162 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqx68xokkqqxw"]
+
+[ext_resource type="Script" uid="uid://bgv17sl42jewg" path="res://src/info.gd" id="1_8h4vm"]
+[ext_resource type="PackedScene" uid="uid://blcq31elikvjq" path="res://src/background.tscn" id="2_4px8v"]
+
+[node name="Info" type="CanvasLayer"]
+process_mode = 3
+layer = 5
+script = ExtResource("1_8h4vm")
+
+[node name="EngineContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Container" type="VBoxContainer" parent="EngineContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Game" type="Label" parent="EngineContainer/Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "FPS:
+Memory (static):
+Peak Memory (static):"
+
+[node name="Engine" type="Label" parent="EngineContainer/Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "Godot: ...
+Renderer: ...
+Device: ..."
+
+[node name="PhysicsContainer" type="MarginContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -63.0
+offset_right = 116.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Physics" type="Label" parent="PhysicsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "..."
+vertical_alignment = 2
+
+[node name="CopyContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CounterContainer" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -116.0
+offset_top = -63.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Counter" type="Label" parent="CounterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "... Objects"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="TotalTimeLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TotalTimeLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TotalTime" type="Label" parent="TotalTimeLayer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 92
+text = "00:00:00"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TotalTimeLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer1" type="MarginContainer" parent="TotalTimeLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="BackButton" type="Button" parent="TotalTimeLayer/VBoxContainer/HBoxContainer/MarginContainer1"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="MarginContainer3" type="MarginContainer" parent="TotalTimeLayer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CopyButton" type="Button" parent="TotalTimeLayer/VBoxContainer/HBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Copy"
+
+[node name="Background" parent="." instance=ExtResource("2_4px8v")]
+
+[connection signal="button_down" from="TotalTimeLayer/VBoxContainer/HBoxContainer/MarginContainer1/BackButton" to="." method="_on_back_to_intro"]
+[connection signal="button_down" from="TotalTimeLayer/VBoxContainer/HBoxContainer/MarginContainer3/CopyButton" to="." method="_on_copy_results"]

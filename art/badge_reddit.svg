@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="191.25" height="28">
+	<g shape-rendering="crispEdges">
+		<rect width="191.25" height="28" fill="#ff4500"/>
+	</g>
+	<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
+		<image x="9" y="7" width="14" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAMAAAA3HE0QAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGBQTFRFytXc/1gB+8iz/v//0Nvh3+ns6/L0CRET1+Pn6zwO9fn5nl9d+tjL+/390mtf7/X25e3w//PvMUNI+/X08vf4+fv84+Dm/d/UhyIj9/r7//v5//n2kz5AtsHD//Dq////5uztIwAAACB0Uk5T/////////////////////////////////////////wBcXBvtAAABH0lEQVR42nyS7XKDIBBFV0C+DNEYqNG28f3fMhcUrR30/trsOcOY3aW5nNtjLaiMOXIlcL4ZJaFRfeThRHirvv8dXbCyLDDVz7PupOyoLESONnLykWo6/v4vTOr7VHjwPe+DEDsD48ewYRkFzRO/ypNmfh1i7pI7ulnHk9O8nvvDr2bllpi0wcFojDGbgPonYsybMFYfDfTYfeV31CbxTuNvkrchOFNVVX4i1c6F0VKag/R2DLGZZzFEIQTr22VQnWyhmIo5lz7XOQZuvW/lIjAsFwqeQfByCOOYsGTrLuoaimxblYMaB9HVeVlCQ4GzCwnXetsmCR2d/IRPVIg/68YBCUg68VoDCjqeHK0RCVHp5HaSvNLJsa8ctjc/AgwADgM7yndSFhIAAAAASUVORK5CYII="/>
+		<text transform="scale(.1)" x="1056.25" y="175" textLength="1472.5" fill="#fff" font-weight="bold">Portuguese Community</text>
+	</g>
+</svg>

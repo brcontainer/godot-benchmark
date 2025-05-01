@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjkcrgsivqkf7"]
+
+[ext_resource type="Script" uid="uid://8ajpmm50rllm" path="res://src/3D/main.gd" id="1_ry2bt"]
+[ext_resource type="PackedScene" uid="uid://dqx68xokkqqxw" path="res://src/info.tscn" id="1_sxaki"]
+
+[sub_resource type="Environment" id="Environment_ry2bt"]
+ambient_light_source = 2
+ambient_light_color = Color(0.366595, 0.366595, 0.366595, 1)
+reflected_light_source = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f3bkm"]
+size = Vector3(10, 10, 0.1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_ry2bt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ry2bt")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0, -2, 11)
+
+[node name="Box" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+
+[node name="Back" type="CollisionShape3D" parent="Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+shape = SubResource("BoxShape3D_f3bkm")
+
+[node name="Front" type="CollisionShape3D" parent="Box"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+shape = SubResource("BoxShape3D_f3bkm")
+
+[node name="Left" type="CollisionShape3D" parent="Box"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 0, 1.31134e-07)
+shape = SubResource("BoxShape3D_f3bkm")
+
+[node name="Right" type="CollisionShape3D" parent="Box"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5, 0, -1.31134e-07)
+shape = SubResource("BoxShape3D_f3bkm")
+
+[node name="Bottom" type="CollisionShape3D" parent="Box"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -5, 0)
+shape = SubResource("BoxShape3D_f3bkm")
+
+[node name="From" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="GeneratorTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+
+[node name="Info" parent="." instance=ExtResource("1_sxaki")]
+
+[connection signal="timeout" from="GeneratorTimer" to="." method="_on_create_object"]
+[connection signal="finished" from="Info" to="." method="_on_info_finished"]
+[connection signal="started" from="Info" to="." method="_on_info_started"]

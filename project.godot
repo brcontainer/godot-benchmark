@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Godot benchmark"
+run/main_scene="uid://bamewew7430oi"
+config/project_settings_override="res://override.cfg"
+config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.858824, 0.0509804, 0.215686, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://dyw5av03h037m"
+config/icon="uid://cbhd8eyrw5csl"
+boot_splash/minimum_display_time=2000
+
+[display]
+
+window/stretch/mode="canvas_items"
+
+[physics]
+
+2d/physics_engine="GodotPhysics2D"
+3d/physics_engine="GodotPhysics3D"
+common/physics_interpolation=true
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.0705882, 0.309804, 1, 1)

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="191.25" height="28">
+	<g shape-rendering="crispEdges">
+		<rect width="191.25" height="28" fill="#ff0033"/>
+	</g>
+	<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="100">
+		<image x="9" y="9" width="14" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAWCAMAAACWh252AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF////////VXz1bAAAAAJ0Uk5T/wDltzBKAAAAQ0lEQVR42mJgJAAYQBgngChgwAeIUcBAAFBZASNBBVicjK4AQwmmAjQl2BSgKCHDBMp8Qfugxp5oKE4weFUwMgIEGADI7ABwuh8DYQAAAABJRU5ErkJggg=="/>
+		<text transform="scale(.1)" x="1056.25" y="175" textLength="1472.5" font-weight="bold">DEMONSTRATION</text>
+	</g>
+</svg>
